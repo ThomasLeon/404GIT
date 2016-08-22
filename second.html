@@ -1,0 +1,254 @@
+<!DOCTYPE>
+<html en ng-app="agyaelar">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Second Year</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <!-- Custom styles for this template -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<!-- Body Matter -->
+<body>
+  <div ng-controller="secondcontrol">
+    <div id="h" style="padding-top:120px;">
+      <div>
+        <div class="logo">
+          <a href="index.html"><img src="assets/img/header_logo.png" alt="logo"></a>
+        </div>
+        <!-- header social hidden-x(default)-->
+        <div class="years" >
+          <a href="first.html">FIRST</a>
+          <a href="second.html">SECOND</a>
+          <div class="yzeedropdown">
+            <a href="">THIRD</a>
+            <div class="yzeedropdown-content">
+              <ul style="text-align:left;">
+                <li><a href="thirdcs.html">CS</a></li>
+                <li><a href="thirdct.html">CT</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="yzeedropdown">
+            <a href="">FOURTH</a>
+            <div class="yzeedropdown-content">
+              <ul style="text-align:left;">
+                <li><a href="fourthse.html">SE</a></li>
+                <li><a href="fourthke.html">KE</a></li>
+                <li><a href="fourthbis.html">BIS</a></li>
+                <li><a href="fourthhpc.html">HPC</a></li>
+                <li><a href="fourthes.html">ES</a></li>
+                <li><a href="fourthcn.html">CN</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="container">
+        <div class="row">
+          <h3 class="title-margin"><b>2015-2016 Second Year (First Semester) Exam Result</b></h3>
+          <div style="margin-bottom:0px;">
+            <table class="table yzeecolor" style="margin-bottom:3px;width:100%;">
+              <thead>
+                <tr>
+                  <th width="3%">#</th>
+                  <th width="10%">Roll No.</th>
+                  <th width="17%">Name</th>
+                  <th width="10%">English</th>
+                  <th width="10%">201</th>
+                  <th width="10%">202</th>
+                  <th width="10%">203</th>
+                  <th width="10%">204</th>
+                  <th width="10%">205</th>
+                  <th width="9%">206</th>
+                  <th width="1%"></th>
+                </tr>
+              </thead>
+            </table>
+          </div> <!-- tbl-header -->
+          <div style="margin-top:0px;height:372px;overflow-y:auto;">
+            <table class="table yzeetable">
+              <tbody>
+                <tr ng-repeat="student2 in secondyear">
+                  <td width="3%">{{student2.no}}</td>
+                  <td width="10%">{{student2.roll_no}}</td>
+                  <td width="17%">{{student2.name}}</td>
+                  <td width="10%">{{student2.sub1}}</td>
+                  <td width="10%">{{student2.sub2}}</td>
+                  <td width="10%">{{student2.sub3}}</td>
+                  <td width="10%">{{student2.sub4}}</td>
+                  <td width="10%">{{student2.sub5}}</td>
+                  <td width="10%">{{student2.sub6}}</td>
+                  <td width="10%">{{student2.sub7}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- tbl-content End -->
+        </div><!--/row-->
+      </div><!--/container-->
+    </div> <!--h-->
+
+    <!-- Charts -->
+    <div class="container">
+    <div class="row" style="margin-top:100px; margin-bottom:100px;">
+      <div class="row centered" style="margin-top:10px;margin-bottom:20px;">
+       <div class="row">
+          <div class="col-md-6">
+            <h3 style="text-align:center;">Exam Pass/Fail Analysis Chart </h3>
+          </div>
+          <div class="col-md-6">
+            <h3 style="text-align:center;">Subjects' Grades Analysis Chart</h3>
+          </div>
+        </div>
+        <!-- <h3 style="text-align:center; ">Data Analysis Charts</h3> -->
+        <div class="col-md-6" data-ng-init="donut()" >
+          <div style="height:400px;">
+              <canvas id="donut" height="400px" style="margin-top:40px" >
+              {{secondyear}}
+              </canvas>
+              
+          </div>
+         </div><!--/col-md-4-->
+
+         
+            <p class="col-md-1 yzeevertical" style="width:450px; height:30px; margin-left:50px;">Numbers of Students</p>
+         
+
+         <div class="col-md-5" style="margin-left:50px;">
+               <table class="yzeetable" >
+               <tr>
+               <td>
+               <input type="text" ng-model="sub" placeholder="Enter Subject" style="width:400px;">
+               </td>
+               <td>
+                 <button class="btn btn-default" type="button"  ng-click="graph(sub)" >
+                      Find
+                    </button>
+                </td>
+                </tr>
+                </table>
+
+          <div  style="width:560px height:400px">
+            <canvas id="canvas" width="550" height="400">
+              {{secondyear}}
+            </canvas>
+          </div>
+         
+        </div><!--/col-md-4-->
+
+        </div><!--/row-->
+        <div class="row">
+          <div class="col-md-6">
+            <p style="text-align:center;"> Numbers of Students Pass And Fail</p>
+          </div>
+          <div class="col-md-6">
+            <p style="text-align:center;"> Subject Grades</p>
+          </div>
+        </div>
+      </div><!--/container-->
+
+      </div> <!--controller-->
+        <div id="f">
+      <div class="container">
+        <div class="row centered">
+          <h2>You Can Contact Us</h2>
+          <h5>UITINFO@UIT.EDU.MM</h5>
+
+          <p class="mt">
+            <a href="#"><i class="ion-social-twitter"></i></a>
+            <a href="#"><i class="ion-social-dribbble"></i></a>
+            <a href="#"><i class="ion-social-instagram"></i></a>
+            <a href="#"><i class="ion-social-facebook"></i></a>
+            <a href="#"><i class="ion-social-pinterest"></i></a>
+            <a href="#"><i class="ion-social-tumblr"></i></a>
+          </p>
+          <h6 class="mt">COPYRIGHT 2016 - AGYAELAR?</h6>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/F-->
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- jquery -->
+      <script src="assets/js/jquery.min.js"></script>
+      <!-- Angularjs -->
+      <script src="assets/js/angular.min.js"></script>
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="assets/js/bootstrap.min.js"></script>
+      <!-- Chart.js -->
+      <script type="text/javascript" src="assets/js/Chart.min.js"></script>      
+      <!-- controller -->
+      <script src="controllers/secondcontroller.js" type="text/javascript"></script>
+      <script>
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var barChartDemo;
+        barChartData = {
+          labels: ["A", "B", "C", "D", "E"],
+          datasets: [{
+            fillColor: "#005650",
+            strokeColor: "",
+            data: [0, 0, 0, 0, 0]
+          }]
+        };
+        barChartDemo = new Chart(ctx).Bar(barChartData, {
+          responsive: true,
+          barValueSpacing: 2,
+          fullwidth: false
+        });
+
+        function test(){
+          var scope = angular.element(document.getElementById('canvas')).scope();
+          barChartDemo.datasets[0].bars[0].value = scope.secondyear.A;
+          barChartDemo.datasets[0].bars[1].value = scope.secondyear.B;
+          barChartDemo.datasets[0].bars[2].value = scope.secondyear.C;
+          barChartDemo.datasets[0].bars[3].value = scope.secondyear.D;
+          barChartDemo.datasets[0].bars[4].value = scope.secondyear.E;
+          barChartDemo.update();
+        }
+      </script>
+      <script type="text/javascript">
+       var context = document.getElementById("donut").getContext("2d");
+
+       function dchart() {
+        var scope = angular.element(document.getElementById("donut")).scope();
+        console.log(scope.secondyear.P);
+        console.log(scope.secondyear.F);
+        var pieData = [
+
+        {
+          value: scope.secondyear.P,
+          label: 'Pass',
+          color: "#005650"
+        },
+        {
+          value: scope.secondyear.F,
+          label: 'Fail',
+          color: "red"           
+        },
+        ];
+        // console.log(scope.secondyear.P);
+        // donut.pieData[0].value=scope.secondyear.P;
+        // donut.pieData[0].value=scope.secondyear.F;
+        var donuts;
+        donuts = new Chart(context).Doughnut(pieData,{
+          type:"doughnut",
+          animation:{
+            animateScale:true
+          }
+        });
+      }
+
+    </script>
+
+    </body>
+    </html>
